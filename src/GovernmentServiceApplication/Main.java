@@ -1,0 +1,282 @@
+package GovernmentServiceApplication;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner user_input = new Scanner(System.in);
+        System.out.println("----------Welcome to Government Service System--------------");
+        System.out.println("1.Register as Citizen");
+        System.out.println("2.Request Service");
+        System.out.println("3.Approving Application");
+        System.out.println("4.Rejecting Application");
+        System.out.println("5.Searching Application");
+        System.out.println("6.Printing BirthCertificate Applications");
+        System.out.println("7.Printing Passport Applications");
+        System.out.println();
+
+        System.out.println("Enter number:");
+        int input_value = user_input.nextInt();
+        user_input.nextLine();
+
+        ServiceApplication SA = new ServiceApplication();
+        ManagerApplications MA = new ManagerApplications();
+
+        switch(input_value){
+            case 1:
+                System.out.println("Enter Your Full name:");
+                String FullName  = user_input.nextLine();
+                SA.setFullName(FullName);
+
+                System.out.println("Enter Your Father Name:");
+                String FatherName  = user_input.nextLine();
+                SA.setFatherName(FatherName);
+
+                System.out.println("Enter Your Country:");
+                String Country  = user_input.nextLine();
+                SA.setCountry(Country);
+
+                Citizen CT = new Citizen(FullName,FatherName,Country);
+                CT.RegisterCitizen(CT);
+                break;
+
+
+            case 2:
+                System.out.println("1.Birth Certificate Application");
+                System.out.println("2.Passport Application");
+                System.out.println("3.Add new Application");
+
+                System.out.println("Enter number:");
+                int input_value2 = user_input.nextInt();
+                user_input.nextLine();
+
+                switch (input_value2){
+                    case 1:
+                        System.out.println("Enter Your Full name:");
+                        String FullName1  = user_input.nextLine();
+                        SA.setFullName(FullName1);
+
+                        System.out.println("Enter Your Father Name:");
+                        String FatherName1  = user_input.nextLine();
+                        SA.setFatherName(FatherName1);
+
+                        System.out.println("Enter Your Date Of Birth:");
+                        String DateOfBirth = user_input.nextLine();
+                        SA.setDateOfBirth(DateOfBirth);
+
+                        System.out.println("Enter Your Gender:");
+                        String Gender = user_input.nextLine();
+                        SA.setGender(Gender);
+
+                        System.out.println("Enter Your Place Of Birth:");
+                        String PlaceOfBirth = user_input.nextLine();
+                        SA.setPlaceOfBirth(PlaceOfBirth);
+
+                        SA.BirthCertificateService(FullName1,DateOfBirth,Gender,PlaceOfBirth,FatherName1);
+                        break;
+                    case 2:
+
+                        System.out.println("Enter Your Full name:");
+                        String FullName2  = user_input.nextLine();
+                        SA.setFullName(FullName1);
+
+                        System.out.println("Enter Your Father Name:");
+                        String FatherName2  = user_input.nextLine();
+                        SA.setFatherName(FatherName1);
+
+                        System.out.println("Enter Your Date Of Birth:");
+                        String DateOfBirth2 = user_input.nextLine();
+                        SA.setDateOfBirth(DateOfBirth);
+
+                        System.out.println("Enter Your Gender:");
+                        String Gender2 = user_input.nextLine();
+                        SA.setGender(Gender);
+
+                        System.out.println("Enter Your Place Of Birth:");
+                        String PlaceOfBirth2 = user_input.nextLine();
+                        SA.setPlaceOfBirth(PlaceOfBirth);
+
+                        System.out.println("Enter Your MartialStatus:");
+                        String MartialStatus = user_input.nextLine();
+                        SA.setMartialStatus(MartialStatus);
+
+                        System.out.println("Enter Your Nationality:");
+                        String Nationality = user_input.nextLine();
+                        SA.setNationality(Nationality);
+
+                        System.out.println("Enter Your NationalId:");
+                        String NationalId = user_input.nextLine();
+                        SA.setNationality(NationalId);
+
+                        SA.ApplyingPassport(FullName2,FatherName2,DateOfBirth2,Gender2,MartialStatus,Nationality,NationalId);
+                        break;
+
+                    case 3:
+                        System.out.println("1.Birth Certificate Application");
+                        System.out.println("2.Passport Application");
+
+                        System.out.println("Enter number:");
+                        int input_value3 = user_input.nextInt();
+                        user_input.nextLine();
+
+                        switch(input_value3){
+
+                            case 1:
+                                System.out.println("Enter Your Full name:");
+                                String FullName3 = user_input.nextLine();
+                                SA.setFullName(FullName1);
+
+                                System.out.println("Enter Your Father Name:");
+                                String FatherName3  = user_input.nextLine();
+                                SA.setFatherName(FatherName1);
+
+                                System.out.println("Enter Your Date Of Birth:");
+                                String DateOfBirth3 = user_input.nextLine();
+                                SA.setDateOfBirth(DateOfBirth);
+
+                                System.out.println("Enter Your Gender:");
+                                String Gender3 = user_input.nextLine();
+                                SA.setGender(Gender);
+
+                                System.out.println("Enter Your Place Of Birth:");
+                                String PlaceOfBirth3 = user_input.nextLine();
+                                SA.setPlaceOfBirth(PlaceOfBirth);
+
+                                MA.BirthCertificateService(FullName3,DateOfBirth3,Gender3,PlaceOfBirth3,FatherName3);
+                                break;
+
+                            case 2:
+                                System.out.println("Enter Your Full name:");
+                                String FullName4  = user_input.nextLine();
+                                SA.setFullName(FullName1);
+
+                                System.out.println("Enter Your Father Name:");
+                                String FatherName4  = user_input.nextLine();
+                                SA.setFatherName(FatherName1);
+
+                                System.out.println("Enter Your Date Of Birth:");
+                                String DateOfBirth4 = user_input.nextLine();
+                                SA.setDateOfBirth(DateOfBirth);
+
+                                System.out.println("Enter Your Gender:");
+                                String Gender4 = user_input.nextLine();
+                                SA.setGender(Gender);
+
+                                System.out.println("Enter Your Place Of Birth:");
+                                String PlaceOfBirth4 = user_input.nextLine();
+                                SA.setPlaceOfBirth(PlaceOfBirth);
+
+                                System.out.println("Enter Your MartialStatus:");
+                                String MartialStatus4 = user_input.nextLine();
+                                SA.setMartialStatus(MartialStatus);
+
+                                System.out.println("Enter Your Nationality:");
+                                String Nationality4 = user_input.nextLine();
+                                SA.setNationality(Nationality);
+
+                                System.out.println("Enter Your NationalId:");
+                                String NationalId4 = user_input.nextLine();
+                                SA.setNationality(NationalId);
+
+                                MA.ApplyingPassport(FullName4,FatherName4,DateOfBirth4,Gender4,MartialStatus4,Nationality4,NationalId4);
+                                break;
+
+                            default:
+                                System.out.println("Invalid Input");
+
+                        }
+                    default:
+                        System.out.println("invalid input");
+
+                }
+
+            case 3:
+                System.out.println("1.Approve BirthCertificate Application");
+                System.out.println("2.Approve Passport Application");
+
+                System.out.println("Enter number:");
+                int input_value3 = user_input.nextInt();
+                user_input.nextLine();
+
+                switch(input_value3){
+                    case 1:
+                        System.out.println("Enter unique id:");
+                        String Id= user_input.nextLine();
+
+                        MA.ApprovingBirthCertificateApplication(Id);
+
+                        break;
+
+                    case 2:
+                        System.out.println("Enter unique id:");
+                        String Id1= user_input.nextLine();
+                        MA.ApprovingPassportApplication(Id1);
+
+                        break;
+                    default:
+                        System.out.println("Invalid Input");
+
+                }
+            case 4:
+                System.out.println("1.Reject BirthCertificate Application");
+                System.out.println("2.Reject Passport Application");
+
+                System.out.println("Enter number:");
+                int input_value4 = user_input.nextInt();
+                user_input.nextLine();
+
+                switch(input_value4){
+                    case 1:
+                        System.out.println("Enter unique id:");
+                        String Id= user_input.nextLine();
+
+                        MA.RejectingBirthCertificateApplication(Id);
+
+                        break;
+                    case 2:
+                        System.out.println("Enter unique id:");
+                        String Id1= user_input.nextLine();
+
+                        MA.RejectingPassportApplication(Id1);
+
+                        break;
+                }
+            case 5:
+                System.out.println("1.Search BirthCertificate Application");
+                System.out.println("2.Search Passport Application");
+
+                System.out.println("Enter number:");
+                int input_value5 = user_input.nextInt();
+                user_input.nextLine();
+
+                switch(input_value5) {
+                    case 1:
+                        System.out.println("Enter unique id:");
+                        String Id = user_input.nextLine();
+
+                        MA.SearchingBirthCertificateApplication(Id);
+
+                        break;
+                    case 2:
+                        System.out.println("Enter unique id:");
+                        String Id1 = user_input.nextLine();
+
+                        MA.SearchingPassportApplication(Id1);
+
+                        break;
+                }
+
+            case 6:
+                MA.PrintBirthCertificateApplications();
+                break;
+            case 7:
+                MA.PrintPassportApplications();
+                break;
+
+            default:
+                System.out.println("invalid input");
+
+        }
+    }
+}
