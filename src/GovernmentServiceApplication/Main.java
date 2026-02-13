@@ -22,6 +22,7 @@ public class Main {
 
         ServiceApplication SA = new ServiceApplication();
         ManagerApplications MA = new ManagerApplications();
+        SA.StoreCitizensInArray();
 
         switch(input_value){
             case 1:
@@ -190,6 +191,7 @@ public class Main {
                         System.out.println("invalid input");
 
                 }
+                break;
 
             case 3:
                 System.out.println("1.Approve BirthCertificate Application");
@@ -218,6 +220,8 @@ public class Main {
                         System.out.println("Invalid Input");
 
                 }
+                break;
+
             case 4:
                 System.out.println("1.Reject BirthCertificate Application");
                 System.out.println("2.Reject Passport Application");
