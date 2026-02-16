@@ -6,11 +6,12 @@ public class Main {
     public static void main(String[] args) {
 
         ServiceApplication SA = new ServiceApplication();
-        ManagerApplications MA = new ManagerApplications();
+        ManagerApplications MA = new ManagerApplications(SA);
         SA.StoreCitizensInArray();
 
         Scanner user_input = new Scanner(System.in);
         int input_value;
+
         do{
         System.out.println("\n----------Welcome to Government Service System--------------");
         System.out.println("1.Register as Citizen");
@@ -147,7 +148,7 @@ public class Main {
                                 String PlaceOfBirth3 = user_input.nextLine();
                                 SA.setPlaceOfBirth(PlaceOfBirth3);
 
-                                MA.BirthCertificateService(FullName3,DateOfBirth3,Gender3,PlaceOfBirth3,FatherName3);
+                                SA.BirthCertificateService(FullName3,DateOfBirth3,Gender3,PlaceOfBirth3,FatherName3);
                                 break;
 
                             case 2:
@@ -183,7 +184,7 @@ public class Main {
                                 String NationalId4 = user_input.nextLine();
                                 SA.setNationality(NationalId4);
 
-                                MA.ApplyingPassport(FullName4,FatherName4,DateOfBirth4,Gender4,MartialStatus4,Nationality4,NationalId4);
+                                SA.ApplyingPassport(FullName4,FatherName4,DateOfBirth4,Gender4,MartialStatus4,Nationality4,NationalId4);
                                 break;
 
                             default:

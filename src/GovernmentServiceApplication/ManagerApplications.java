@@ -3,15 +3,21 @@ package GovernmentServiceApplication;
 import java.sql.SQLOutput;
 import java.util.Arrays;
 
-public class ManagerApplications extends ServiceApplication{
+public class ManagerApplications{
+
+    private ServiceApplication SA;
+
+    public ManagerApplications(ServiceApplication SA){
+        this.SA = SA;
+    }
 
     public  void AddNewApplicationBirthCertificate(String FullName, String DateOfBirth, String Gender, String PlaceOfBirth, String FatherName){
-        super.BirthCertificateService(FullName,DateOfBirth,Gender,PlaceOfBirth,FatherName);
+        SA.BirthCertificateService(FullName,DateOfBirth,Gender,PlaceOfBirth,FatherName);
         System.out.println("new application added successfully");
     }
 
     public  void AddNewApplicationPassport(String FullName,String FatherName, String DateOfBirth, String Gender, String MartialStatus, String Nationality, String NationalId){
-        super.ApplyingPassport(FullName,FatherName,DateOfBirth,Gender,MartialStatus,Nationality,NationalId);
+        SA.ApplyingPassport(FullName,FatherName,DateOfBirth,Gender,MartialStatus,Nationality,NationalId);
         System.out.println("new application added successfully");
     }
 
@@ -19,7 +25,7 @@ public class ManagerApplications extends ServiceApplication{
     public void ApprovingBirthCertificateApplication( String UniqueId){
 
         boolean found = false;
-        for(BirthCertificateApplications data : BirthLists){
+        for(BirthCertificateApplications data : SA.BirthLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "approved";
                 System.out.println("Application Approved");
@@ -33,7 +39,7 @@ public class ManagerApplications extends ServiceApplication{
     public void RejectingBirthCertificateApplication(String UniqueId){
 
         boolean found = false;
-        for(BirthCertificateApplications data : BirthLists){
+        for(BirthCertificateApplications data :SA.BirthLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "Rejected";
                 System.out.println("Application rejected");
@@ -47,7 +53,7 @@ public class ManagerApplications extends ServiceApplication{
     public void ApprovingPassportApplication(String UniqueId){
 
         boolean found = false;
-        for(PassportApplication data : passportLists){
+        for(PassportApplication data : SA.passportLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "approved";
                 System.out.println("Application Approved");
@@ -61,7 +67,7 @@ public class ManagerApplications extends ServiceApplication{
     public void RejectingPassportApplication( String UniqueId){
 
         boolean found = false;
-        for(PassportApplication data : passportLists){
+        for(PassportApplication data : SA.passportLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "Rejected";
                 System.out.println("Application rejected");
@@ -75,7 +81,7 @@ public class ManagerApplications extends ServiceApplication{
     public void SearchingBirthCertificateApplication( String UniqueId){
 
         boolean found = false;
-        for(BirthCertificateApplications data : BirthLists){
+        for(BirthCertificateApplications data : SA.BirthLists){
             if(data.UniqueId.equals(UniqueId) ){
                 System.out.println("Application found:" + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
                 return;
@@ -88,7 +94,7 @@ public class ManagerApplications extends ServiceApplication{
     public void SearchingPassportApplication( String UniqueId){
 
         boolean found = false;
-        for(PassportApplication data : passportLists){
+        for(PassportApplication data : SA.passportLists){
             if(data.UniqueId.equals(UniqueId) ){
                 System.out.println("Application found:" + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
                 return;
@@ -101,7 +107,7 @@ public class ManagerApplications extends ServiceApplication{
     public void PrintBirthCertificateApplications() {
         System.out.println("........ List of all Birth Certificate Applications ........");
 
-        for (BirthCertificateApplications show : BirthLists) {
+        for (BirthCertificateApplications show : SA.BirthLists) {
             System.out.println("Full Name: " + show.FullName);
             System.out.println("Date of Birth: " + show.DateOfBirth);
             System.out.println("Status: " + show.Status);
@@ -113,7 +119,7 @@ public class ManagerApplications extends ServiceApplication{
     public void PrintPassportApplications() {
         System.out.println("........ List of all Passport Applications ........");
 
-        for (PassportApplication show : passportLists) {
+        for (PassportApplication show : SA.passportLists) {
             System.out.println("Full Name: " + show.FullName);
             System.out.println("Date of Birth: " + show.DateOfBirth);
             System.out.println("Status: " + show.Status);
