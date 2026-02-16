@@ -202,10 +202,10 @@ public class Main {
                 System.out.println("2.Approve Passport Application");
 
                 System.out.println("Enter number:");
-                int input_value3 = user_input.nextInt();
+                int input_value4 = user_input.nextInt();
                 user_input.nextLine();
 
-                switch(input_value3){
+                switch(input_value4){
                     case 1:
                         System.out.println("Enter unique id:");
                         String Id= user_input.nextLine();
@@ -231,10 +231,10 @@ public class Main {
                 System.out.println("2.Reject Passport Application");
 
                 System.out.println("Enter number:");
-                int input_value4 = user_input.nextInt();
+                int input_value5 = user_input.nextInt();
                 user_input.nextLine();
 
-                switch(input_value4){
+                switch(input_value5){
                     case 1:
                         System.out.println("Enter unique id:");
                         String Id= user_input.nextLine();
@@ -256,10 +256,10 @@ public class Main {
                 System.out.println("2.Search Passport Application");
 
                 System.out.println("Enter number:");
-                int input_value5 = user_input.nextInt();
+                int input_value6 = user_input.nextInt();
                 user_input.nextLine();
 
-                switch(input_value5) {
+                switch(input_value6) {
                     case 1:
                         System.out.println("Enter unique id:");
                         String Id = user_input.nextLine();

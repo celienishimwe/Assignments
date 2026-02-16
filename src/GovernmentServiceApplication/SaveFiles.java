@@ -3,12 +3,18 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SaveFiles extends ServiceApplication {
+public class SaveFiles {
+
+    private ServiceApplication Service;
+
+    public SaveFiles(ServiceApplication Service){
+        this.Service = Service;
+    }
 
     public void saveBirthApplicationsToTextFile() {
         try (BufferedWriter writer = new BufferedWriter( new FileWriter("BirthCertificateApplications.txt"))) {
-            for (BirthCertificateApplications app : BirthLists) {
-                writer.write(app.FullName + "," + app.UniqueId + "," + app.DateOfBirth + "," + app.Status
+            for (BirthCertificateApplications app : Service.getBirthLists()) {
+                writer.write(app.getFullName() + "," + app.getUniqueId() + "," + app.getDateOfBirth() + "," + app.getStatus()
                 );
             }
 
@@ -21,8 +27,8 @@ public class SaveFiles extends ServiceApplication {
 
     public void savePassportApplicationsToTextFile() {
         try (BufferedWriter writer = new BufferedWriter( new FileWriter("PassportApplicationFile.txt"))) {
-            for (PassportApplication app : passportLists) {
-                writer.write(app.FullName + "," + app.UniqueId + "," + app.DateOfBirth + "," + app.Status
+            for (PassportApplication app : Service.getPassportLists()) {
+                writer.write(app.getFullName() + "," + app.getUniqueId() + "," + app.getDateOfBirth() + "," + app.getStatus()
                 );
             }
 

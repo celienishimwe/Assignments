@@ -10,6 +10,18 @@ public class ServiceApplication extends GovernmentService{
     ArrayList <BirthCertificateApplications> BirthLists = new ArrayList<>();
     ArrayList <PassportApplication> passportLists = new ArrayList<>();
 
+    public ArrayList<Citizen> getCitizens() {
+        return citizens;
+    }
+
+    public ArrayList<BirthCertificateApplications> getBirthLists() {
+        return BirthLists;
+    }
+
+    public ArrayList<PassportApplication> getPassportLists() {
+        return passportLists;
+    }
+
     public void StoreCitizensInArray(){
         try(BufferedReader reader = new BufferedReader((new FileReader("citizens.txt")))){
 
