@@ -2,6 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/FullPractice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/FullPractice/InventorySystem" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/FullPractice/PersonalAtm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/NotificationSystem" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/arrays" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/fileinputandoutput" vcs="Git" />
