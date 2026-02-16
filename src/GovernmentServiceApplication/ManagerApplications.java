@@ -1,5 +1,8 @@
 package GovernmentServiceApplication;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.Arrays;
 
@@ -31,9 +34,8 @@ public class ManagerApplications{
                 System.out.println("Application Approved");
                 return;
             }
-            System.out.println("Your Application not found");
         }
-
+        System.out.println("Your Application not found");
     }
 
     public void RejectingBirthCertificateApplication(String UniqueId){
@@ -45,8 +47,8 @@ public class ManagerApplications{
                 System.out.println("Application rejected");
                 return;
             }
-            System.out.println("Your Application not found");
         }
+        System.out.println("Your Application not found");
 
     }
 
@@ -59,8 +61,8 @@ public class ManagerApplications{
                 System.out.println("Application Approved");
                 return;
             }
-            System.out.println("Your Application not found");
         }
+        System.out.println("Your Application not found");
 
     }
 
@@ -73,8 +75,8 @@ public class ManagerApplications{
                 System.out.println("Application rejected");
                 return;
             }
-            System.out.println("Your Application not found");
         }
+        System.out.println("Your Application not found");
 
     }
 
@@ -86,8 +88,9 @@ public class ManagerApplications{
                 System.out.println("Application found:" + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
                 return;
             }
-            System.out.println("Your application not found");
+
         }
+        System.out.println("Your application not found");
 
     }
 
@@ -107,25 +110,35 @@ public class ManagerApplications{
     public void PrintBirthCertificateApplications() {
         System.out.println("........ List of all Birth Certificate Applications ........");
 
-        for (BirthCertificateApplications show : SA.BirthLists) {
-            System.out.println("Full Name: " + show.FullName);
-            System.out.println("Date of Birth: " + show.DateOfBirth);
-            System.out.println("Status: " + show.Status);
-            System.out.println("Unique ID: " + show.UniqueId);
-            System.out.println("-------------------------------------");
+        try (BufferedReader reader = new BufferedReader(new FileReader("BirthCertificateApplications.txt"))) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
         }
+            System.out.println("-------------------------------------");
     }
 
     public void PrintPassportApplications() {
         System.out.println("........ List of all Passport Applications ........");
 
-        for (PassportApplication show : SA.passportLists) {
-            System.out.println("Full Name: " + show.FullName);
-            System.out.println("Date of Birth: " + show.DateOfBirth);
-            System.out.println("Status: " + show.Status);
-            System.out.println("Unique ID: " + show.UniqueId);
-            System.out.println("-------------------------------------");
+        try (BufferedReader reader = new BufferedReader(new FileReader("PassportApplicationFile.txt"))) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
         }
+        System.out.println("-------------------------------------");
+    }
     }
 
-}
