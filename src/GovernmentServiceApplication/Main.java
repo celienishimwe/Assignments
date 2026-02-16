@@ -6,7 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner user_input = new Scanner(System.in);
-        System.out.println("----------Welcome to Government Service System--------------");
+        int input_value;
+        do{
+        System.out.println("\n----------Welcome to Government Service System--------------");
         System.out.println("1.Register as Citizen");
         System.out.println("2.Request Service");
         System.out.println("3.Approving Application");
@@ -14,10 +16,11 @@ public class Main {
         System.out.println("5.Searching Application");
         System.out.println("6.Printing BirthCertificate Applications");
         System.out.println("7.Printing Passport Applications");
+        System.out.println("8.Exit");
         System.out.println();
 
         System.out.println("Enter number:");
-        int input_value = user_input.nextInt();
+        input_value = user_input.nextInt();
         user_input.nextLine();
 
         ServiceApplication SA = new ServiceApplication();
@@ -187,6 +190,7 @@ public class Main {
                                 System.out.println("Invalid Input");
 
                         }
+                        break;
                     default:
                         System.out.println("invalid input");
 
@@ -246,6 +250,7 @@ public class Main {
 
                         break;
                 }
+                break;
             case 5:
                 System.out.println("1.Search BirthCertificate Application");
                 System.out.println("2.Search Passport Application");
@@ -271,6 +276,8 @@ public class Main {
                         break;
                 }
 
+                break;
+
             case 6:
                 MA.PrintBirthCertificateApplications();
                 break;
@@ -282,5 +289,6 @@ public class Main {
                 System.out.println("invalid input");
 
         }
+    }while (input_value != 8);
     }
 }
