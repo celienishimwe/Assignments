@@ -1,7 +1,21 @@
 package GenericAssignment1;
 
+import java.util.Objects;
+
 public class Generic <k,v>{
     private k key;
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Generic<?, ?> generic)) return false;
+        return Objects.equals(key, generic.key) && Objects.equals(value, generic.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(key, value);
+    }
+
     private v value;
 
     public Generic(k key,v value){
