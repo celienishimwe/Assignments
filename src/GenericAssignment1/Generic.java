@@ -28,8 +28,9 @@ public class Generic <k,v>{
     public void setValue(v value) {
         this.value = value;
     }
-
-
+    public static <K, V> Generic<K ,V> create(K key, V value){
+        return new Generic<K,V>(key,value);
+    }
     @Override
     public String toString() {
         return "Generic{" +
