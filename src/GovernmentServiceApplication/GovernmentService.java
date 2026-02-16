@@ -16,7 +16,7 @@ public abstract class GovernmentService {
     }
 
     public void setCountry(String Country) {
-        FullName = Country;
+        this.Country = Country;
     }
 
     public String getFullName() {

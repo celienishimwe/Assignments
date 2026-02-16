@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        ServiceApplication SA = new ServiceApplication();
+        ManagerApplications MA = new ManagerApplications();
+        SA.StoreCitizensInArray();
+
         Scanner user_input = new Scanner(System.in);
         int input_value;
         do{
@@ -22,10 +26,6 @@ public class Main {
         System.out.println("Enter number:");
         input_value = user_input.nextInt();
         user_input.nextLine();
-
-        ServiceApplication SA = new ServiceApplication();
-        ManagerApplications MA = new ManagerApplications();
-        SA.StoreCitizensInArray();
 
         switch(input_value){
             case 1:

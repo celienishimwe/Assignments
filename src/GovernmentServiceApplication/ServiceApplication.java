@@ -1,5 +1,4 @@
 package GovernmentServiceApplication;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -72,12 +71,12 @@ public class ServiceApplication extends GovernmentService{
 
                 BirthCertificateApplications birthCertificateApplications = new BirthCertificateApplications(FullName,DateOfBirth,"Pending",UniqueId);
                 BirthLists.add(birthCertificateApplications);
+                new SaveFiles(this).saveBirthApplicationsToTextFile();
 
                 return;
             }
         }
         System.out.println("Invalid your full name or Father name or you are not registered:");
-        return;
     }
 
     @Override
@@ -101,6 +100,7 @@ public class ServiceApplication extends GovernmentService{
 
                 PassportApplication passportApplication = new PassportApplication(FullName,DateOfBirth,"pending",UniqueId);
                 passportLists.add(passportApplication);
+                new SaveFiles(this).savePassportApplicationsToTextFile();
                 return;
             }
         }
