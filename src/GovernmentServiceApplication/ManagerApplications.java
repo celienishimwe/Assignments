@@ -24,8 +24,8 @@ public class ManagerApplications{
 
     public void UpdateBirthFile() {
 
-        try (BufferedWriter writer =
-                     new BufferedWriter(new FileWriter("BirthCertificateApplications.txt"))) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("BirthCertificateApplications.txt"));
 
             for (BirthCertificateApplications data : SA.BirthLists) {
 
@@ -33,6 +33,7 @@ public class ManagerApplications{
 
                 writer.newLine();
             }
+            writer.close();
 
         } catch (IOException e) {
             System.out.println("Error updating file: " + e.getMessage());
@@ -41,8 +42,8 @@ public class ManagerApplications{
 
     public void UpdatePassportFile() {
 
-        try (BufferedWriter writer =
-                     new BufferedWriter(new FileWriter("PassportApplicationFile.txt"))) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("PassportApplicationFile.txt"));
 
             for (PassportApplication data : SA.passportLists) {
 
@@ -50,6 +51,7 @@ public class ManagerApplications{
 
                 writer.newLine();
             }
+            writer.close();
 
         } catch (IOException e) {
             System.out.println("Error updating file: " + e.getMessage());
@@ -120,43 +122,83 @@ public class ManagerApplications{
 
     }
 
-    public void SearchingBirthCertificateApplication( String UniqueId){
+    public void SearchingBirthCertificateApplication(String UniqueId){
 
         boolean found = false;
-        for(BirthCertificateApplications data : SA.BirthLists){
-            if(data.UniqueId.equals(UniqueId) ){
-                System.out.println("Application found:" + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
-                return;
+
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("BirthCertificateApplications.txt"));
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] parts = line.split(",");
+
+                if (parts[1].equals(UniqueId)) {
+
+                    System.out.println("Application found: " + parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3]);
+
+                    found = true;
+                    break;
+                }
             }
+            reader.close();
 
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
         }
-        System.out.println("Your application not found");
 
+        if (!found) {
+            System.out.println("Your application not found");
+        }
     }
 
-    public void SearchingPassportApplication( String UniqueId){
+
+    public void SearchingPassportApplication(String UniqueId){
 
         boolean found = false;
-        for(PassportApplication data : SA.passportLists){
-            if(data.UniqueId.equals(UniqueId) ){
-                System.out.println("Application found:" + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
-                return;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("PassportApplicationFile.txt"));
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] parts = line.split(",");
+
+                if (parts[1].equals(UniqueId)) {
+
+                    System.out.println("Application found: " + parts[0] + " "+ parts[1] + " " + parts[2] + " " + parts[3]);
+
+                    found = true;
+                    break;
+                }
             }
+            reader.close();
+
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+
+        if (!found) {
             System.out.println("Your Application not found");
         }
-
     }
+
 
     public void PrintBirthCertificateApplications() {
         System.out.println("........ List of all Birth Certificate Applications ........");
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("BirthCertificateApplications.txt"))) {
-
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("BirthCertificateApplications.txt"));
             String line;
 
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
+            reader.close();
 
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
@@ -167,13 +209,15 @@ public class ManagerApplications{
     public void PrintPassportApplications() {
         System.out.println("........ List of all Passport Applications ........");
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("PassportApplicationFile.txt"))) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("PassportApplicationFile.txt"));
 
             String line;
 
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
+            reader.close();
 
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
