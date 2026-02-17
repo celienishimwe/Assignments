@@ -211,7 +211,7 @@ public class Main {
                 switch(input_value4){
                     case 1:
                         System.out.println("Enter unique id:");
-                        String Id= user_input.nextLine();
+                        String Id= user_input.nextLine().trim();
 
                         MA.ApprovingBirthCertificateApplication(Id);
 
@@ -219,7 +219,7 @@ public class Main {
 
                     case 2:
                         System.out.println("Enter unique id:");
-                        String Id1= user_input.nextLine();
+                        String Id1= user_input.nextLine().trim();
                         MA.ApprovingPassportApplication(Id1);
 
                         break;
@@ -287,11 +287,15 @@ public class Main {
             case 7:
                 MA.PrintPassportApplications();
                 break;
+            case 8:
+                break;
 
             default:
                 System.out.println("invalid input");
 
         }
     }while (input_value != 8);
+
+        System.out.println("System Terminated.");
     }
 }

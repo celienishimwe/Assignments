@@ -29,7 +29,7 @@ public class ManagerApplications{
 
             for (BirthCertificateApplications data : SA.BirthLists) {
 
-                writer.write(data.UniqueId + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
+                writer.write(data.FullName + "," + data.UniqueId + "," + data.DateOfBirth + "," + data.Status);
 
                 writer.newLine();
             }
@@ -47,7 +47,7 @@ public class ManagerApplications{
 
             for (PassportApplication data : SA.passportLists) {
 
-                writer.write(data.UniqueId + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
+                writer.write( data.FullName + "," +data.UniqueId + "," + data.DateOfBirth + "," + data.Status);
 
                 writer.newLine();
             }
@@ -137,7 +137,7 @@ public class ManagerApplications{
 
                 if (parts[1].equals(UniqueId)) {
 
-                    System.out.println("Application found: " + parts[0] + " " + parts[1] + " " + parts[2] + " " + parts[3]);
+                    System.out.println("Application found: " + parts[0] + "," + parts[1] + "," + parts[2] + "," + parts[3]);
 
                     found = true;
                     break;
@@ -170,7 +170,7 @@ public class ManagerApplications{
 
                 if (parts[1].equals(UniqueId)) {
 
-                    System.out.println("Application found: " + parts[0] + " "+ parts[1] + " " + parts[2] + " " + parts[3]);
+                    System.out.println("Application found: " + parts[0] + ","+ parts[1] + "," + parts[2] + "," + parts[3]);
 
                     found = true;
                     break;

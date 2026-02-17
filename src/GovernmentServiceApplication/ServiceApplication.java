@@ -22,7 +22,7 @@ public class ServiceApplication extends GovernmentService{
     }
 
     public void LoadBirthApplicationsFromFile() {
-        passportLists.clear();
+        BirthLists.clear();
         try {
             BufferedReader reader = new BufferedReader(new FileReader("BirthCertificateApplications.txt"));
             String line;
@@ -30,7 +30,7 @@ public class ServiceApplication extends GovernmentService{
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 BirthCertificateApplications app = new BirthCertificateApplications(
-                        parts[0], parts[0], parts[2], parts[3]
+                        parts[0].trim(), parts[2].trim(), parts[3].trim(), parts[1].trim()
                 );
                 BirthLists.add(app);
             }
@@ -50,7 +50,7 @@ public class ServiceApplication extends GovernmentService{
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 PassportApplication app = new PassportApplication(
-                        parts[0], parts[1], parts[2], parts[3]
+                        parts[0].trim(), parts[2].trim(), parts[3].trim(), parts[1].trim()
                 );
                 passportLists.add(app);
             }

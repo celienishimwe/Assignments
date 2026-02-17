@@ -1,7 +1,4 @@
-Kamikazi,155978,2002,Pending
-Kamikazi,51776,2002,Pending
-Kamikazi,51776,2002,Pending
-Kamikazi,8364,2002,Pending
-Kamikazi,51776,2002,Pending
-Kamikazi,8364,2002,Pending
+Kamikazi,155978,2002,approved
+Kamikazi,51776,2002,Rejected
+Kamikazi,8364,2002,approved
 Kamikazi,48893,2002,Pending
