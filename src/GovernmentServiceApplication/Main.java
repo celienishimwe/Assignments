@@ -8,6 +8,8 @@ public class Main {
         ServiceApplication SA = new ServiceApplication();
         ManagerApplications MA = new ManagerApplications(SA);
         SA.StoreCitizensInArray();
+        SA.LoadBirthApplicationsFromFile();
+        SA.LoadPassportApplicationsFromFile();
 
         Scanner user_input = new Scanner(System.in);
         int input_value;

@@ -21,6 +21,48 @@ public class ServiceApplication extends GovernmentService{
         return passportLists;
     }
 
+    public void LoadBirthApplicationsFromFile() {
+        passportLists.clear();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("BirthCertificateApplications.txt"));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                BirthCertificateApplications app = new BirthCertificateApplications(
+                        parts[0], parts[0], parts[2], parts[3]
+                );
+                BirthLists.add(app);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error loading Birth applications: " + e.getMessage());
+        }
+    }
+
+    public void LoadPassportApplicationsFromFile() {
+        passportLists.clear();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("PassportApplicationFile.txt"));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                PassportApplication app = new PassportApplication(
+                        parts[0], parts[1], parts[2], parts[3]
+                );
+                passportLists.add(app);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error loading Passport applications: " + e.getMessage());
+        }
+    }
+
+
+
     public void StoreCitizensInArray(){
         try(BufferedReader reader = new BufferedReader((new FileReader("citizens.txt")))){
 
