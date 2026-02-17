@@ -1,8 +1,6 @@
 package GovernmentServiceApplication;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.sql.SQLOutput;
 import java.util.Arrays;
 
@@ -24,6 +22,42 @@ public class ManagerApplications{
         System.out.println("new application added successfully");
     }
 
+    public void UpdateBirthFile() {
+
+        try (BufferedWriter writer =
+                     new BufferedWriter(new FileWriter("BirthCertificateApplications.txt"))) {
+
+            for (BirthCertificateApplications data : SA.BirthLists) {
+
+                writer.write(data.UniqueId + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
+
+                writer.newLine();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error updating file: " + e.getMessage());
+        }
+    }
+
+    public void UpdatePassportFile() {
+
+        try (BufferedWriter writer =
+                     new BufferedWriter(new FileWriter("PassportApplicationFile.txt"))) {
+
+            for (PassportApplication data : SA.passportLists) {
+
+                writer.write(data.UniqueId + " " + data.FullName + " " + data.DateOfBirth + " " + data.Status);
+
+                writer.newLine();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error updating file: " + e.getMessage());
+        }
+    }
+
+
+
 
     public void ApprovingBirthCertificateApplication( String UniqueId){
 
@@ -31,6 +65,9 @@ public class ManagerApplications{
         for(BirthCertificateApplications data : SA.BirthLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "approved";
+
+                UpdateBirthFile();
+
                 System.out.println("Application Approved");
                 return;
             }
@@ -44,6 +81,7 @@ public class ManagerApplications{
         for(BirthCertificateApplications data :SA.BirthLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "Rejected";
+                UpdateBirthFile();
                 System.out.println("Application rejected");
                 return;
             }
@@ -58,6 +96,7 @@ public class ManagerApplications{
         for(PassportApplication data : SA.passportLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "approved";
+                UpdatePassportFile();
                 System.out.println("Application Approved");
                 return;
             }
@@ -72,6 +111,7 @@ public class ManagerApplications{
         for(PassportApplication data : SA.passportLists){
             if(data.UniqueId.equals(UniqueId) ){
                 data.Status = "Rejected";
+                UpdatePassportFile();
                 System.out.println("Application rejected");
                 return;
             }
