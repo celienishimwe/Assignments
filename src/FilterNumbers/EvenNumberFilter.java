@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 public class EvenNumberFilter {
     public static List<Integer> filterEvenNumbers(List<Integer> a){
 
+
+        // here I use collectors I read it in Processing Collections with Streams lesson
         List<Integer> result = a.stream().filter(b -> b%2 == 0).collect(Collectors.toList());
         return result;
 
