@@ -25,10 +25,19 @@ public class FunctionalCalculator {
         if (number1 !=0 && number2 !=0){
 
             int result1 = FunctionalCalculator.calculate(number1,number2,add);
-            System.out.println("the output of addition is :" + result1);
+            int result2 = FunctionalCalculator.calculate(number1,number2,sub);
+            int result3 = FunctionalCalculator.calculate(number1,number2,mult);
+            int result4 = FunctionalCalculator.calculate(number1,number2,div);
 
+
+            System.out.println("Addition:" + " " + number1 + " " + " " + "+" +  " " + number2 + " " + "="+ " " + result1);
+            System.out.println("Subtraction:" + " " + number1 + " " + " " + "-" +  " " + number2 + " " + "="+ " " + result2);
+            System.out.println("Multiplication:" + " " + number1 + " " + " " + "*" +  " " + number2 + " " + "="+ " " + result3);
+            System.out.println("Division:" + " " + number1 + " " + " " + "/" +  " " + number2 + " " + "="+ " " + result4);
+
+        }else{
+            System.out.println("please enter number not equal to 0");
         }
-        System.out.println("please enter number above 0");
 
 
     }
